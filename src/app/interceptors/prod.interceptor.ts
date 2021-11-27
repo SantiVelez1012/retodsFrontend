@@ -16,14 +16,16 @@ export class ProdInterceptor implements HttpInterceptor{
     constructor( private authService: AuthService, private tokenService:TokenService){ }
 
     intercept(req:HttpRequest<any>, next:HttpHandler):Observable<HttpEvent<any>>{
+        console.log("paso por el interceptor http");
         if(!this.tokenService.isLogged()){ 
             return next.handle(req);
         }
-        let intRequest = req;
+        let authRequest = req;
 
         const token = this.tokenService.getToken();
 
-        intRequest = ProdInterceptor.addToken(req, token);
+        authRequest = ProdInterceptor.addToken(req, token);
+        
 
         //@ts-ignore
         return next.handle(intRequest).pipe(catchError((error:HttpErrorResponse) =>{
@@ -33,8 +35,8 @@ export class ProdInterceptor implements HttpInterceptor{
 
             return this.authService.refrescarSesion(jwtModel).pipe(map((data:any) =>{
                 this.tokenService.setToken(data.token);
-                intRequest = intRequest = ProdInterceptor.addToken(req, data.token);
-                return next.handle(intRequest);
+                authRequest = authRequest = ProdInterceptor.addToken(req, data.token);
+                return next.handle(authRequest);
              }));
 
          }else{
@@ -43,10 +45,11 @@ export class ProdInterceptor implements HttpInterceptor{
         }));
      }
 
-     private static addToken(req:HttpRequest<any>, token:string|null):HttpRequest<any>{ 
+    private static addToken(req:HttpRequest<any>, token:string|null):HttpRequest<any>{ 
        return req.clone({headers:req.headers.set(AUTHORIZATION, 'Bearer' + token) });  
-     }
+    }
 
 }
 
-export const interceptorProvider = [{provide: HTTP_INTERCEPTORS, useClass:ProdInterceptor, multi:true}];
+export const interceptorProvider = [{provide: HTTP_INTERCEPTORS,
+     useClass:ProdInterceptor, multi:true}];
