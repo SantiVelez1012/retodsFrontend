@@ -28,7 +28,7 @@ export class ProdInterceptor implements HttpInterceptor{
         
 
         //@ts-ignore
-        return next.handle(intRequest).pipe(catchError((error:HttpErrorResponse) =>{
+        return next.handle(authRequest).pipe(catchError((error:HttpErrorResponse) =>{
             
             if(error.status == 401){
             const jwtModel:JwtModel = new JwtModel(this.tokenService.getToken());

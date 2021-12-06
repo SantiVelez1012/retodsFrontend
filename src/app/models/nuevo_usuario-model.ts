@@ -1,11 +1,12 @@
 export class Nuevo_usuario{
+    
 
     private nombreUsuario:string;
     private password: string;
     private nombreCompleto:string;
     private ciudad:string;
     private pais:string;
-    private roles:string[];
+    public roles:string[];
 
     constructor(nombreUsuario:string, password:string,
         nombreCompleto:string, ciudad:string,
@@ -38,5 +39,8 @@ export class Nuevo_usuario{
     getRoles(){
         return this.roles;
     }
+    setRoles(roles: string[]) {
+        this.roles = roles;
+      }
 
 }

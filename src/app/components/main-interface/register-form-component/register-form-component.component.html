@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+
+        <div class="col-md-6 col-12 justify-content-center">
+            
+            <form [formGroup]="registerForm" class="d-block" (ngSubmit)="registrarUser()">
+
+                <label for="nombreUsuario"> Nombre de Usuario: </label>
+
+                <div class="mt-3 mb-3 w-100">
+                    <input type="text" id="nombreUsuario" formControlName="nombreUsuario">
+                </div>
+
+                <label for="password"> Contraseña: </label>
+
+                <div class="mt-3 mb-3">
+                    <input type="password" id="password" formControlName="password">
+                </div>
+
+                <label for="nombreCompleto"> Nombre completo: </label>
+
+                <div class="mt-3 mb-3">
+                    <input type="text" id="nombreCompleto" formControlName="nombreCompleto">
+                </div>
+
+                <label for="pais"> Pais: </label>
+
+                <div class="mt-3 mb-3">
+                    <input type="text" id="pais" formControlName="pais">
+                </div>
+
+                <label for="pais"> Ciudad: </label>
+
+                <div class="mt-3 mb-3">
+                    <input type="text" id="ciudad" formControlName="ciudad">
+                </div>
+                
+                <button [disabled]="!registerForm.valid" class="btn-primary">Registrarse</button>
+            </form>
+
+        </div>
+        
+        <div class="col-md-3">
+
+        </div>
+    </div>
+</div>
