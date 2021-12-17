@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core'
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor,
 HttpErrorResponse, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { AuthService } from '../services/auth-service';
-import { TokenService } from '../services/token-service';
+import { AuthService } from '../services/auth.service';
+import { TokenService } from '../services/token.service';
 import { JwtModel } from '../models/jwt-model';
 import { map } from 'rxjs/operators';
 

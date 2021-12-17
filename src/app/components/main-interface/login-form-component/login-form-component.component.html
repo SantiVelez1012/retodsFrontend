@@ -1,1 +1,31 @@
-<p>login-form-component works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+
+        <div class="col-md-6 col-12 justify-content-center">
+            
+            <form [formGroup]="loginForm" class="d-block" (ngSubmit)="loguearUser()">
+
+                <label for="nombreUsuario"> Nombre de Usuario: </label>
+
+                <div class="mt-3 mb-3 w-100">
+                    <input type="text" id="nombreUsuario" formControlName="nombreUsuario">
+                </div>
+
+                <label for="password"> Contraseña: </label>
+
+                <div class="mt-3 mb-3">
+                    <input type="password" id="password" formControlName="password">
+                </div>
+                
+                <button [disabled]="!loginForm.valid" class="btn-primary">Loguearse</button>
+            </form>
+
+        </div>
+        
+        <div class="col-md-3">
+
+        </div>
+    </div>
+</div>

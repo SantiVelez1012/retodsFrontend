@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Nuevo_usuario } from 'src/app/models/nuevo_usuario-model';
-import { AuthService } from 'src/app/services/auth-service';
+import { AuthService } from 'src/app/services/auth.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthValidationService } from 'src/app/services/auth-validation.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-form-component',
@@ -10,10 +12,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class RegisterFormComponentComponent implements OnInit {
 
-  constructor(private authService: AuthService, private fb:FormBuilder) { }
+  constructor(private authService: AuthService, private fb:FormBuilder, private authValidationService: AuthValidationService, private router:Router) { }
 
   usuarioRegistro!:Nuevo_usuario;
-  roles = ["Anfitrion", "Visitante"];
+  roles = ["Anfitrion", "Viajero"];
 
   registerForm = this.fb.group({
     nombreUsuario: ['', Validators.required],
@@ -23,27 +25,27 @@ export class RegisterFormComponentComponent implements OnInit {
     pais:['', Validators.required] 
   })
 
-  /* 
-  CAMPOS PARA EL FORMULARIO DE REGISTRO
-    Usuario
-    Contraseña
-    Nombre Completo
-    Ciudad
-    País
-    Rol (Anfitrión o Viajero)
-  */ 
 
   ngOnInit(): void {
-    console.log("xd");
+    
   }
 
   registrarUser(){
     this.usuarioRegistro = this.registerForm.value;
     this.usuarioRegistro.roles = this.roles;
 
+    this.authValidationService.validateExistence(this.usuarioRegistro) ? this.registroExitoso() : this.registroFallido();
 
-    return console.log(this.usuarioRegistro);
-    //return this.authService.registroUsuario(this.usuarioRegistro);
+  }
+
+  registroExitoso(){
+    alert('Registro realizado con exito, por favor proceda a loguearse');
+    this.router.navigate(['login']);
+
+  }
+
+  registroFallido(){
+    alert('Nombre de usuario ya utilizado, por favor elija otro');
   }
 
 }

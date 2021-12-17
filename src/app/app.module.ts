@@ -11,6 +11,7 @@ import { LoginFormComponentComponent } from './components/main-interface/login-f
 import { NavbarAppComponent } from './components/layout/navbar-app/navbar-app.component';
 import { FooterAppComponent } from './components/layout/footer-app/footer-app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './components/main-interface/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegisterFormComponentComponent,
     LoginFormComponentComponent,
     NavbarAppComponent,
-    FooterAppComponent
+    FooterAppComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
