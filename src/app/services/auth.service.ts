@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Nuevo_usuario } from "../models/nuevo_usuario-model";
 import { LoginModel } from "../models/login-model";
 import { JwtModel } from "../models/jwt-model";
@@ -9,6 +9,11 @@ import { JwtModel } from "../models/jwt-model";
     providedIn:'root'
 })
 export class AuthService{
+
+    private headers ={ headers: new HttpHeaders({ 
+        'Access-Control-Allow-Origin':'*'})
+    }
+
 
     authURL = environment.authUrl;
 
@@ -25,6 +30,7 @@ export class AuthService{
     public refrescarSesion(jsonWebToken:JwtModel){
         return this.http.post<JwtModel>(`${this.authURL}/REFRESH_TOKEN`, jsonWebToken);
     }
+
 
 }
 
