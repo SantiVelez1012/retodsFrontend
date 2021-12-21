@@ -18,7 +18,7 @@ export class ProdGuard{
        Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree{
            const rolEsperado = route.data.rolEsperado;
 
-           this.rolReal = this.tokenService.isAnfitrion() ? "anfitrion":"visitante";
+           this.rolReal = this.tokenService.isAnfitrion() ? "anfitrion":"viajero";
            
            if (!this.tokenService.isLogged() || rolEsperado.indexOf(this.rolReal) < 0) {
             this.router.navigate(['/error']);

@@ -14,7 +14,6 @@ export class AuthService{
         'Access-Control-Allow-Origin':'*'})
     }
 
-
     authURL = environment.authUrl;
 
     constructor(private http:HttpClient){}
