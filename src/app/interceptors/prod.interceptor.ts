@@ -22,6 +22,8 @@ export class ProdInterceptor implements HttpInterceptor{
         }
         let authRequest = req;
 
+        console.log(req.url);
+
         const token = this.tokenService.getToken();
 
         authRequest = ProdInterceptor.addToken(req, token);

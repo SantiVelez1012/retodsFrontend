@@ -1,31 +1,36 @@
 <div class="container-fluid">
+
+    <div class="row mt-5 mb-4">
+        <h2 class="text-center"> Inicio de Sesión</h2>
+    </div>
+
     <div class="row">
-        <div class="col-md-3">
-        </div>
+        <div class="col-md-4"></div>
 
-        <div class="col-md-6 col-12 justify-content-center">
+        <div class="col-md-4 col-12 text-center">
             
-            <form [formGroup]="loginForm" class="d-block" (ngSubmit)="loguearUser()">
+            <form [formGroup]="loginForm" class="w-100" (ngSubmit)="loguearUser()">
 
-                <label for="nombreUsuario"> Nombre de Usuario: </label>
+                
 
                 <div class="mt-3 mb-3 w-100">
-                    <input type="text" id="nombreUsuario" formControlName="nombreUsuario">
+                    <label for="nombreUsuario"> Nombre de Usuario: </label>
+                    <input type="text" id="nombreUsuario" class="w-100" formControlName="nombreUsuario">
                 </div>
 
-                <label for="password"> Contraseña: </label>
+                
 
                 <div class="mt-3 mb-3">
-                    <input type="password" id="password" formControlName="password">
+                    <label for="password"> Contraseña: </label>
+                    <input type="password" id="password" class="w-100" formControlName="password">
                 </div>
                 
-                <button [disabled]="!loginForm.valid" class="btn-primary">Loguearse</button>
+                <button [disabled]="!loginForm.valid" class="btn-success w-100">Iniciar Sesión</button>
+
             </form>
 
         </div>
         
-        <div class="col-md-3">
-
-        </div>
+        <div class="col-md-4"></div>
     </div>
 </div>
