@@ -1,13 +1,5 @@
-export class JwtModel{
+export interface JwtModel{
 
-    private token:string | null;
-
-    constructor(token:string | null){
-        this.token = token;
-    }
-
-    getToken(){
-        return this.token;
-    }
+    token:string | null;
 
 }
