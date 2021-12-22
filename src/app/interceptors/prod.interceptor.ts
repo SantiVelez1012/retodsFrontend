@@ -33,7 +33,9 @@ export class ProdInterceptor implements HttpInterceptor{
         return next.handle(authRequest).pipe(catchError((error:HttpErrorResponse) =>{
             
             if(error.status == 401){
-            const jwtModel:JwtModel = new JwtModel(this.tokenService.getToken());
+            const jwtModel:JwtModel  = {
+                token:this.tokenService.getToken()
+            };
 
             return this.authService.refrescarSesion(jwtModel).pipe(map((data:any) =>{
                 this.tokenService.setToken(data.token);
