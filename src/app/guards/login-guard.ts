@@ -13,12 +13,12 @@ export class LoginGuard implements CanActivate{
         route:ActivatedRouteSnapshot,
         state:RouterStateSnapshot
     ):Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree{
-        if(!this.tokenService.isLogged()){
-            alert('No tas logueado');
-            this.router.navigate(['login']);
-            return false;
+        if(this.tokenService.isLogged()){
+            return true;
         }
-        return true;
+        alert('No tas logueado');
+        this.router.navigate(['/login']);
+        return false;
     }
 
 }
