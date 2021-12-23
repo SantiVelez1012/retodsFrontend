@@ -34,7 +34,7 @@ export class NewHouseComponent implements OnInit {
   })
 
   registrarCasa(){
-    
+
   }
 
   private cargarPaises(){
@@ -45,7 +45,10 @@ export class NewHouseComponent implements OnInit {
   }
 
   cargarEstados(pais:string){
-    
+    this.countryApiService.getStatesByCity(pais).subscribe(data=>{
+      this.estados = [];
+      this.estados = data;
+    })
   }
 
   cargarCiudades(estado:string){
