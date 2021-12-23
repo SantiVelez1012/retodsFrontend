@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core'
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor,
-HttpErrorResponse, HTTP_INTERCEPTORS } from '@angular/common/http';
+HttpErrorResponse, HTTP_INTERCEPTORS, HttpContext, HttpContextToken } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 import { TokenService } from '../services/token.service';
 import { JwtModel } from '../models/jwt-model';
 import { map } from 'rxjs/operators';
 
+const MAIN_API = new HttpContextToken<boolean>( ()=> false);
 const AUTHORIZATION = 'Authorization';
+
+export function mainApi(){
+    return new HttpContext().set(MAIN_API, true);
+}
 
 @Injectable()
 export class ProdInterceptor implements HttpInterceptor{
@@ -17,9 +22,10 @@ export class ProdInterceptor implements HttpInterceptor{
 
     intercept(req:HttpRequest<any>, next:HttpHandler):Observable<HttpEvent<any>>{
         console.log("paso por el interceptor http");
-        if(!this.tokenService.isLogged()){ 
+        if(!this.tokenService.isLogged() || !req.context.get(MAIN_API)){ 
             return next.handle(req);
         }
+
         let authRequest = req;
 
         console.log(req.url);

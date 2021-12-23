@@ -43,7 +43,8 @@ export class CountryapiService {
 
   getCitiesByState(stateName:string){
     return this.http.get<CityModel[]>(`${environment.countriesUrl}/cities/${stateName}`,
-    {context:validateCountryApi()});
+    {context:validateCountryApi()}
+    );
   }
 
 
