@@ -17,12 +17,12 @@ export class TokenService{
     }
 
     public setCountryToken(token:string):void{
-        window.sessionStorage.removeItem(COUNTRY_KEY);
-        window.sessionStorage.setItem(COUNTRY_KEY, token);
+        window.localStorage.removeItem(COUNTRY_KEY);
+        window.localStorage.setItem(COUNTRY_KEY, token);
     }
 
     public getCountryToken(){
-        return window.sessionStorage.getItem(COUNTRY_KEY);
+        return window.localStorage.getItem(COUNTRY_KEY);
     }
 
 

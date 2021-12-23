@@ -19,7 +19,6 @@ export class CountriesInterceptorService implements HttpInterceptor {
 
   addToken(req:HttpRequest<unknown>){
     const token = this.tokenService.getCountryToken();
-
     if(token){
       return req.clone({
         headers:req.headers.set(AUTHORIZATION, `Bearer ${token}`)
@@ -29,6 +28,8 @@ export class CountriesInterceptorService implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log("paso por el interceptor de paises");
+    
     if(req.context.get(COUNTRY_API)){
       req = this.addToken(req);
     }

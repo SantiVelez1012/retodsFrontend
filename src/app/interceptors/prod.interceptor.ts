@@ -23,6 +23,7 @@ export class ProdInterceptor implements HttpInterceptor{
     intercept(req:HttpRequest<any>, next:HttpHandler):Observable<HttpEvent<any>>{
         console.log("paso por el interceptor http");
         if(!this.tokenService.isLogged() || !req.context.get(MAIN_API)){ 
+            console.log("nada que ver dijo el ciego");
             return next.handle(req);
         }
 

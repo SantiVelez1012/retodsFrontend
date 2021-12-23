@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -16,6 +16,10 @@ export class CountryapiService {
   constructor(private tokenService:TokenService, private http:HttpClient) { }
 
   private authCountryT = environment.authCountryToken;
+
+  private headers ={ headers: new HttpHeaders({ 
+    'Access-Control-Allow-Origin':'*'})
+  }
 
 
   authCountryApi(){
