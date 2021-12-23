@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CityModel } from 'src/app/models/geo-models/city-model';
 import { CountryModel } from 'src/app/models/geo-models/country-model';
@@ -12,7 +13,7 @@ import { CountryapiService } from 'src/app/services/countryapi.service';
 })
 export class NewHouseComponent implements OnInit {
 
-  constructor(private countryApiService:CountryapiService, private router:Router) { }
+  constructor(private countryApiService:CountryapiService, private router:Router, private fb:FormBuilder) { }
   //@ts-ignore
   paises:CountryModel[] = [];
   estados: StateModel[] = [];
@@ -21,6 +22,18 @@ export class NewHouseComponent implements OnInit {
   ngOnInit(): void {
 
     this.cargarPaises();
+    
+  }
+
+  houseRegisterForm = this.fb.group({
+    nombreUsuario: ['', Validators.required],
+    password:['', Validators.required],
+    nombreCompleto:['', Validators.required],
+    ciudad: ['', Validators.required],
+    pais:['', Validators.required] 
+  })
+
+  registrarCasa(){
     
   }
 
@@ -33,6 +46,10 @@ export class NewHouseComponent implements OnInit {
 
   cargarEstados(pais:string){
     
+  }
+
+  cargarCiudades(estado:string){
+
   }
 
 }
