@@ -12,6 +12,7 @@ import { NavbarAppComponent } from './components/layout/navbar-app/navbar-app.co
 import { FooterAppComponent } from './components/layout/footer-app/footer-app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/main-interface/dashboard/dashboard.component';
+import { CountriesInterceptorService } from './interceptors/countries-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -31,10 +32,8 @@ import { DashboardComponent } from './components/main-interface/dashboard/dashbo
     ReactiveFormsModule
   ],
   providers: [{
-    provide:HTTP_INTERCEPTORS,
-    useClass:ProdInterceptor,
-    multi:true
-  }],
+    provide:HTTP_INTERCEPTORS, useClass:ProdInterceptor, multi:true},
+    {provide: HTTP_INTERCEPTORS, useClass: CountriesInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
