@@ -13,6 +13,7 @@ import { FooterAppComponent } from './components/layout/footer-app/footer-app.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/main-interface/dashboard/dashboard.component';
 import { CountriesInterceptorService } from './interceptors/countries-interceptor.service';
+import { NewHouseComponent } from './components/anfitrion-interface/new-house/new-house.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CountriesInterceptorService } from './interceptors/countries-intercepto
     LoginFormComponentComponent,
     NavbarAppComponent,
     FooterAppComponent,
-    DashboardComponent
+    DashboardComponent,
+    NewHouseComponent
   ],
   imports: [
     BrowserModule,
