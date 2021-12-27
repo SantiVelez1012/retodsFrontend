@@ -26,11 +26,13 @@ export class NewHouseComponent implements OnInit {
   }
 
   houseRegisterForm = this.fb.group({
-    nombreUsuario: ['', Validators.required],
-    password:['', Validators.required],
-    nombreCompleto:['', Validators.required],
+    idCasa: [''],
+    direccion: ['', Validators.required],
+    pais:['', Validators.required],
+    estado:['', Validators.required],
     ciudad: ['', Validators.required],
-    pais:['', Validators.required] 
+    telefono:['', Validators.required],
+    urlFoto:['']
   })
 
   registrarCasa(){
@@ -40,15 +42,16 @@ export class NewHouseComponent implements OnInit {
   private cargarPaises(){
     this.countryApiService.getCountries().subscribe( data =>{
       this.paises = data;
-      console.log(this.paises);
     });
   }
 
   cargarEstados(pais:string){
-    this.countryApiService.getStatesByCity(pais).subscribe(data=>{
+    this.countryApiService.getStatesByCity(pais).subscribe( estados => {
       this.estados = [];
-      this.estados = data;
-    })
+      console.log(this.estados);
+      this.estados = estados;
+      
+    });
   }
 
   cargarCiudades(estado:string){
