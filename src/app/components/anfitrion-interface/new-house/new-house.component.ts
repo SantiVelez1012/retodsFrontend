@@ -50,12 +50,24 @@ export class NewHouseComponent implements OnInit {
       this.estados = [];
       console.log(this.estados);
       this.estados = estados;
-      
     });
   }
 
   cargarCiudades(estado:string){
 
+    this.countryApiService.getCitiesByState(estado).subscribe( ciudades => {
+      this.ciudades = [];
+      console.log(this.ciudades);
+      this.ciudades = ciudades;
+
+      if(this.ciudades.length === 0){
+        this.ciudades.push({
+          city_name:estado
+        });
+      }
+
+    });
+    
   }
 
 }
