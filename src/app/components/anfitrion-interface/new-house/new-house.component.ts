@@ -70,4 +70,9 @@ export class NewHouseComponent implements OnInit {
     
   }
 
+  onUpload(e:Event){
+    //@ts-ignore
+    console.log(e.target.files[0].name);
+  }
+
 }
