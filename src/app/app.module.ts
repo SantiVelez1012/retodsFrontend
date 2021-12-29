@@ -14,6 +14,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/main-interface/dashboard/dashboard.component';
 import { CountriesInterceptorService } from './interceptors/countries-interceptor.service';
 import { NewHouseComponent } from './components/anfitrion-interface/new-house/new-house.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { NewHouseComponent } from './components/anfitrion-interface/new-house/ne
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
+
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS, useClass:ProdInterceptor, multi:true},

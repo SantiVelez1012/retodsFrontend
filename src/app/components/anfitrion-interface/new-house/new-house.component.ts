@@ -5,6 +5,9 @@ import { CityModel } from 'src/app/models/geo-models/city-model';
 import { CountryModel } from 'src/app/models/geo-models/country-model';
 import { StateModel } from 'src/app/models/geo-models/state-model';
 import { CountryapiService } from 'src/app/services/countryapi.service';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { finalize } from 'rxjs/operators'; 
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-new-house',
@@ -13,11 +16,17 @@ import { CountryapiService } from 'src/app/services/countryapi.service';
 })
 export class NewHouseComponent implements OnInit {
 
-  constructor(private countryApiService:CountryapiService, private router:Router, private fb:FormBuilder) { }
+  constructor(private countryApiService:CountryapiService, private router:Router, private fb:FormBuilder, private fstorage:AngularFireStorage) { }
+
+
   //@ts-ignore
   paises:CountryModel[] = [];
   estados: StateModel[] = [];
   ciudades: CityModel[] = [];
+
+  uploadPercent: Observable<any> | undefined;
+
+  urlImage!: Observable<any> | undefined;
 
   ngOnInit(): void {
 
@@ -71,8 +80,24 @@ export class NewHouseComponent implements OnInit {
   }
 
   onUpload(e:Event){
+    const id = Math.random().toString(36).substring(2);
     //@ts-ignore
-    console.log(e.target.files[0].name);
+    const file = e.target.files[0];
+    const filePath = `subidas/casas/fotos/${id}`;
+    const ref = this.fstorage.ref(filePath);
+    const task = this.fstorage.upload(filePath, file);
+
+    this.uploadPercent = task.percentageChanges();
+
+    task.snapshotChanges().pipe( finalize(() =>{
+      this.urlImage = ref.getDownloadURL();
+      this.houseRegisterForm.get('urlFoto')?.setValue(this.urlImage);
+    })).subscribe();
+
+
+
+    //@ts-ignore
+    console.log(e.target.files[0]);
   }
 
 }
