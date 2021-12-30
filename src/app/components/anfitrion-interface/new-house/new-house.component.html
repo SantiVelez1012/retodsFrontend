@@ -10,7 +10,7 @@
 
         <div class="col-md-4 col-12">
 
-            <form [formGroup]="houseRegisterForm" (ngSubmit)="registrarCasa()">
+            <form [formGroup]="houseRegisterForm" (ngSubmit)="registrarCasa($event)">
 
                 <div class="mt-3 mb-3 text-center">
                     <label for="direccion"> Dirección de la casa: </label>
@@ -48,7 +48,7 @@
                     <input type="file" id="telefono" accept=".png, .jpg, .csv" (change)="onUpload($event)" class="w-100">
                 </div>
 
-                <button [disabled]="!houseRegisterForm.valid" class="btn-success w-100">Registrarse</button>
+                <button [disabled]="!houseRegisterForm.valid" class="btn-success w-100">Registrar Casa</button>
             </form>
 
         </div>
