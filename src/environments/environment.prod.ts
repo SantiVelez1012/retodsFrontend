@@ -3,6 +3,7 @@ export const environment = {
   authUrl:"http://localhost:8080/AUTH",
   countriesUrl:"https://www.universal-tutorial.com/api",
   authCountryToken:"MYQfuiaoifiQPMS_5zl-vtYcg0YCkShKS_4GKeuOdqWd2rWYubUvZ6Uj0wkyKoMj_wc",
+  houseUrl:"http://localhost:8080/api/casas",
   firebaseConfig:{
     apiKey: "AIzaSyAjrim9kDzhwyF3hft6IhJP3dXuwNm92AE",
     authDomain: "redapoyobackend.firebaseapp.com",

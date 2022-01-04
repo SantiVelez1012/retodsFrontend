@@ -22,8 +22,7 @@ export class ProdInterceptor implements HttpInterceptor{
 
     intercept(req:HttpRequest<any>, next:HttpHandler):Observable<HttpEvent<any>>{
         console.log("paso por el interceptor http");
-        if(!this.tokenService.isLogged() || !req.context.get(MAIN_API)){ 
-            console.log("nada que ver dijo el ciego");
+        if(!this.tokenService.isLogged() || !req.context.get(MAIN_API)){
             return next.handle(req);
         }
 
@@ -31,33 +30,44 @@ export class ProdInterceptor implements HttpInterceptor{
 
         console.log(req.url);
 
-        const token = this.tokenService.getToken();
+        if(authRequest.context.get(MAIN_API)){
+            authRequest = this.addToken(req);
+        }
 
-        authRequest = ProdInterceptor.addToken(req, token);
-        
 
         //@ts-ignore
         return next.handle(authRequest).pipe(catchError((error:HttpErrorResponse) =>{
+
+            console.log(error);
+            return throwError(error);
             
-            if(error.status == 401){
+            /*if(error.status == 401){
             const jwtModel:JwtModel  = {
                 token:this.tokenService.getToken()
             };
 
             return this.authService.refrescarSesion(jwtModel).pipe(map((data:any) =>{
                 this.tokenService.setToken(data.token);
-                authRequest = authRequest = ProdInterceptor.addToken(req, data.token);
+                authRequest = this.addToken(authRequest);
                 return next.handle(authRequest);
              }));
 
          }else{
              return throwError(error);
-          }
-        }));
+          }*/
+        }
+        ));
      }
 
-    private static addToken(req:HttpRequest<any>, token:string|null):HttpRequest<any>{ 
-       return req.clone({headers:req.headers.set(AUTHORIZATION, 'Bearer' + token) });  
+    private addToken(req:HttpRequest<any>):HttpRequest<any>{ 
+        const token = this.tokenService.getToken();
+
+        if(token){
+            return req.clone({headers:req.headers.set(AUTHORIZATION, 'Bearer' + token) });  
+        }
+
+        return req;
+       
     }
 
 }

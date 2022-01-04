@@ -26,12 +26,12 @@ export class TokenService{
     }
 
 
-    public getToken(){
+    public getToken():string | null{
         return localStorage.getItem(TOKEN_KEY);
     }
 
     public isLogged():boolean{
-        return !!this.getToken();
+        return this.getToken() != null;
     }
 
     public getUsernameFromToken(){
