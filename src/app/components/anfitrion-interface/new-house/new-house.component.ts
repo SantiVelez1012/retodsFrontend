@@ -50,14 +50,17 @@ export class NewHouseComponent implements OnInit {
   registrarCasa(event: Event) {
     event.preventDefault();
 
-    this.houseService.guardarCasa(this.houseRegisterForm.value).subscribe(
-      data => {
-        console.log(data);
-      },
-      error => {
-        console.log(error);
-      }
-    );
+
+    try {
+      this.houseService.guardarCasa(this.houseRegisterForm.value).subscribe(
+        data => {
+          console.log(data);
+        });
+    } catch (e) {
+      console.log(e);
+    }
+
+    
 
   }
 

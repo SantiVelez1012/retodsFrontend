@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: '', redirectTo:'login', pathMatch:"full"},
   {path: 'register', component:RegisterFormComponentComponent, pathMatch:'full'},
   {path: 'login', component:LoginFormComponentComponent, pathMatch:'full'},
-  {path: 'dashboard', component:DashboardComponent, pathMatch:'full'},
+  {path: 'dashboard', component:DashboardComponent, pathMatch:'full', canActivate:[LoginGuard]},
   {path: 'newHouse', component:NewHouseComponent, pathMatch:'full'}
 ];
 
