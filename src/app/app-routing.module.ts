@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'register', component:RegisterFormComponentComponent, pathMatch:'full'},
   {path: 'login', component:LoginFormComponentComponent, pathMatch:'full'},
   {path: 'dashboard', component:DashboardComponent, pathMatch:'full', canActivate:[LoginGuard]},
-  {path: 'newHouse', component:NewHouseComponent, pathMatch:'full'}
+  {path: 'newHouse', component:NewHouseComponent, pathMatch:'full', canActivate:[LoginGuard]}
 ];
 
 @NgModule({
