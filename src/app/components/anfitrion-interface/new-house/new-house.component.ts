@@ -58,9 +58,7 @@ export class NewHouseComponent implements OnInit {
         });
     } catch (e) {
       console.log(e);
-    }
-
-    
+    }    
 
   }
 
