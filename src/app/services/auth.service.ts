@@ -25,7 +25,9 @@ export class AuthService{
     }
 
     public logueoUsuario(loginModel:LoginModel){
-        return this.http.post<any>(`${this.authURL}/LOGIN`, loginModel).pipe(map(() =>{
+        return this.http.post<any>(`${this.authURL}/LOGIN`, loginModel).pipe(map((token) =>{
+            console.log(token.token);
+            this.tokenService.setToken(token.token);
             this.startTokenTimer();
         }));
     }
@@ -33,7 +35,7 @@ export class AuthService{
     public refrescarSesion(jsonWebToken:JwtModel){
         return this.http.post<JwtModel>(`${this.authURL}/REFRESH_TOKEN`, jsonWebToken).pipe(map(() =>{
             this.startTokenTimer();
-        }));;
+        }));
     }
 
     
