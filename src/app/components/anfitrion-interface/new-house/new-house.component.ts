@@ -44,12 +44,12 @@ export class NewHouseComponent implements OnInit {
 
   houseRegisterForm = this.fb.group({
     idCasa: [null],
-    direccion: ['65165', Validators.required],
-    pais: ['641814', Validators.required],
-    estado: ['5616851', Validators.required],
-    ciudad: ['684891', Validators.required],
-    telefono: ['6541651', Validators.required],
-    foto: ['5646516']
+    direccion: ['', Validators.required],
+    pais: ['', Validators.required],
+    estado: ['', Validators.required],
+    ciudad: ['', Validators.required],
+    telefono: ['', Validators.required],
+    foto: ['']
   })
 
   registrarCasa(event: Event) {
