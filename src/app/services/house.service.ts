@@ -19,6 +19,6 @@ export class HouseService {
 
 
   guardarCasa(casa: NewCasaModel){
-    return this.http.post<any>(`${this.urlHouse}/guardarcasa`, casa, {context:mainApi()});
+    return this.http.post<NewCasaModel>(`${this.urlHouse}/guardarcasa`, casa, {context:mainApi()});
   }
 }

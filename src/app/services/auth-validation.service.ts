@@ -30,8 +30,7 @@ export class AuthValidationService {
     var errorStatus = 0; 
     new Promise((resolve)=>{
       this.authService.logueoUsuario(usuario).subscribe(data =>{
-        this.tokenService.setToken(data.token);
-        console.log(this.tokenService.getToken());
+        console.log(data);
       }, err =>{
         errorStatus = err.status;
         console.log(errorStatus);

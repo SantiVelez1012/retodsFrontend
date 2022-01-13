@@ -9,6 +9,7 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { HouseService } from 'src/app/services/house.service';
+import { NewCasaModel } from 'src/app/models/newcasa-model';
 
 @Component({
   selector: 'app-new-house',
@@ -25,11 +26,13 @@ export class NewHouseComponent implements OnInit {
   paises: CountryModel[] = [];
   estados: StateModel[] = [];
   ciudades: CityModel[] = [];
+  casa!: NewCasaModel;
+  casaString!:string;
 
 
-  uploadPercent: Observable<any> | undefined;
+  uploadPercent$: Observable<any> | undefined;
 
-  urlImage!: Observable<any> | undefined;
+  urlImage$: Observable<any> | undefined;
 
   ngOnInit(): void {
 
@@ -44,15 +47,17 @@ export class NewHouseComponent implements OnInit {
     estado: ['', Validators.required],
     ciudad: ['', Validators.required],
     telefono: ['', Validators.required],
-    urlFoto: ['']
+    urlFoto: ['', Validators.required]
   })
 
   registrarCasa(event: Event) {
     event.preventDefault();
-
+    
+    console.log(this.houseRegisterForm.value);
+    this.casa = this.houseRegisterForm.value;
 
     try {
-      this.houseService.guardarCasa(this.houseRegisterForm.value).subscribe(
+      this.houseService.guardarCasa(this.casa).subscribe(
         data => {
           console.log(data);
         });
@@ -101,13 +106,14 @@ export class NewHouseComponent implements OnInit {
     const ref = this.fstorage.ref(filePath);
     const task = this.fstorage.upload(filePath, file);
 
-    this.uploadPercent = task.percentageChanges();
+    this.uploadPercent$ = task.percentageChanges();
 
     task.snapshotChanges().pipe(finalize(() => {
-      this.urlImage = ref.getDownloadURL();
+      this.urlImage$ = ref.getDownloadURL();
 
-      this.urlImage.subscribe(url => {
-        this.houseRegisterForm.get('urlFoto')?.setValue(this.urlImage);
+      this.urlImage$.subscribe(url => {
+        console.log(url);
+        this.houseRegisterForm.get('urlFoto')?.setValue(url);
       });
 
     })).subscribe();
