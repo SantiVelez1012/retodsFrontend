@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
     
     this.countryApi.authCountryApi().subscribe();
 
-    console.log(this.tokenService.getCountryToken);
+    console.log(this.tokenService.getCountryToken());
 
   }
 

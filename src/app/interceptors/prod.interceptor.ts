@@ -23,8 +23,8 @@ export class ProdInterceptor implements HttpInterceptor {
     constructor(private authService: AuthService, private tokenService: TokenService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        console.log("paso por el interceptor http");
-        if (!this.tokenService.isLogged() || !req.context.get(MAIN_API)) {
+        
+        if (!this.tokenService.isLogged()) {
             return next.handle(req);
         }
         console.log(req.url);
@@ -39,8 +39,11 @@ export class ProdInterceptor implements HttpInterceptor {
     private addToken(req: HttpRequest<any>): HttpRequest<any> {
         const token = this.tokenService.getToken();
 
+        console.log(token);
+        
+
         if (token) {
-            return req.clone({ headers: req.headers.set(AUTHORIZATION, 'Bearer' + token) });
+            return req.clone({ headers: req.headers.set(AUTHORIZATION, 'Bearer ' + token) });
         }
 
         return req;

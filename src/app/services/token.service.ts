@@ -12,22 +12,23 @@ export class TokenService{
     constructor(private router:Router){}
 
     public setToken(token:string):void{
-        window.localStorage.removeItem(TOKEN_KEY);
-        window.localStorage.setItem(TOKEN_KEY,token);
+        window.sessionStorage.removeItem(TOKEN_KEY);
+        window.sessionStorage.setItem(TOKEN_KEY,token);
     }
 
     public setCountryToken(token:string):void{
-        window.localStorage.removeItem(COUNTRY_KEY);
-        window.localStorage.setItem(COUNTRY_KEY, token);
+        window.sessionStorage.removeItem(COUNTRY_KEY);
+        window.sessionStorage.setItem(COUNTRY_KEY, token);
+        console.log(token);
     }
 
     public getCountryToken(){
-        return window.localStorage.getItem(COUNTRY_KEY);
+        return window.sessionStorage.getItem(COUNTRY_KEY);
     }
 
 
     public getToken():string | null{
-        return localStorage.getItem(TOKEN_KEY);
+        return sessionStorage.getItem(TOKEN_KEY);
     }
 
     public isLogged():boolean{
