@@ -1,6 +1,6 @@
 export interface NewCasaModel {
 
-    id?:string;
+    idCasa?:string;
     direccion: string;
     ciudad: string;
     pais: string;

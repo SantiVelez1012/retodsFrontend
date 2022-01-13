@@ -50,7 +50,7 @@ export class AuthService{
             token:this.tokenService.getToken()
         }
 
-        const timeout = expiracion.getTime() - Date.now() - (60 * 1000);
+        const timeout = expiracion.getTime() - Date.now() - (60 * 10000);
         
         this.refreshTokenTimeout = setTimeout(()=> this.refrescarSesion(token).subscribe(), timeout);
 

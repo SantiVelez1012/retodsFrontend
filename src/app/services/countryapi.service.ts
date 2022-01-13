@@ -30,7 +30,9 @@ export class CountryapiService {
         'user-email':"santivekez1012@gmail.com"
       }
     })
-    .pipe(tap(res => this.tokenService.setCountryToken(res.auth_token)));
+    .pipe(tap(res => 
+      
+      this.tokenService.setCountryToken(res.auth_token)));
   }
 
   getCountries(){

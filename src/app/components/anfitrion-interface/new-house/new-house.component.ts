@@ -28,6 +28,8 @@ export class NewHouseComponent implements OnInit {
   ciudades: CityModel[] = [];
   casa!: NewCasaModel;
   casaString!:string;
+  imgSubida:boolean = true;
+  
 
 
   uploadPercent$: Observable<any> | undefined;
@@ -41,29 +43,28 @@ export class NewHouseComponent implements OnInit {
   }
 
   houseRegisterForm = this.fb.group({
-    idCasa: [''],
-    direccion: ['', Validators.required],
-    pais: ['', Validators.required],
-    estado: ['', Validators.required],
-    ciudad: ['', Validators.required],
-    telefono: ['', Validators.required],
-    urlFoto: ['', Validators.required]
+    idCasa: [null],
+    direccion: ['65165', Validators.required],
+    pais: ['641814', Validators.required],
+    estado: ['5616851', Validators.required],
+    ciudad: ['684891', Validators.required],
+    telefono: ['6541651', Validators.required],
+    foto: ['5646516']
   })
 
   registrarCasa(event: Event) {
     event.preventDefault();
     
     console.log(this.houseRegisterForm.value);
-    this.casa = this.houseRegisterForm.value;
 
     try {
-      this.houseService.guardarCasa(this.casa).subscribe(
+      this.houseService.guardarCasa(this.houseRegisterForm.value).subscribe(
         data => {
           console.log(data);
         });
     } catch (e) {
       console.log(e);
-    }    
+    }  
 
   }
 
@@ -113,7 +114,8 @@ export class NewHouseComponent implements OnInit {
 
       this.urlImage$.subscribe(url => {
         console.log(url);
-        this.houseRegisterForm.get('urlFoto')?.setValue(url);
+        this.houseRegisterForm.get('foto')?.setValue(url);
+        this.imgSubida = false;
       });
 
     })).subscribe();
