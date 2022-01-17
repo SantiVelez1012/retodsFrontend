@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginModel } from 'src/app/models/login-model';
-import { AuthValidationService } from 'src/app/services/auth-validation.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login-form-component',
@@ -11,7 +11,7 @@ import { AuthValidationService } from 'src/app/services/auth-validation.service'
 })
 export class LoginFormComponentComponent implements OnInit {
 
-  constructor(private fb:FormBuilder, private authValidationService:AuthValidationService, private router:Router) { }
+  constructor(private fb:FormBuilder, private authService:AuthService, private router:Router) { }
 
   userLogged!:LoginModel;
 
@@ -25,17 +25,14 @@ export class LoginFormComponentComponent implements OnInit {
 
   loguearUser(){
     this.userLogged = this.loginForm.value;
-    console.log(this.userLogged);
-    this.authValidationService.validateLogin(this.userLogged) ? this.loginExitoso():this.loginFallido();
-  }
 
-  loginExitoso(){
-    alert('Login exitoso, será redireccionado al menú principal');
-    this.router.navigate(['dashboard']);
-  }
+    this.authService.logueoUsuario(this.userLogged).subscribe(data =>{
+      console.log(data);
+      alert('Logueo exitoso, sera redirigido al menu principal :D');
+      this.router.navigate(['dashboard']);
+    }, err =>{
+      alert('Logueo fallido, revise los datos e intentelo de nuevo, si no tiene una cuenta por favor registrese')
+    });
 
-  loginFallido(){
-    alert('Inicio de sesion fallido, El nombre de usuario o la contraseña no es correcto...');
   }
-
 }
