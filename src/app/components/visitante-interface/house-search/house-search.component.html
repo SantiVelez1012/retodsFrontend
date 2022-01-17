@@ -1,0 +1,85 @@
+<div class="container-fluid">
+    <div class="row mt-5 mb-5">
+        <h2 class="text-center">Busqueda de casas</h2>
+    </div>
+
+    <div class="row mt-1 mb-1">
+
+        <div class="col-md-5">
+        </div>
+
+        <div class="col-md-2">
+            <button class="btn-danger w-100" (click)="buscarTodas($event)"> No sabes donde ir? dale click aqui :D </button>
+        </div>
+
+        <div class="col-md-5">
+        </div>
+        
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+
+
+        <div class="col-md-4 col-12">
+
+            <form [formGroup]="houseSearchForm" (ngSubmit)="buscarCasa($event)">
+
+
+                <div class="mt-3 mb-3 text-center">
+                    <label for="password"> Pais: </label>
+                    <select name="pais" id="pais" formControlName="pais" class="w-100" >
+                        <option (click)="cargarEstados(pais.country_name)" *ngFor="let pais of this.paises" [value]="pais.country_name" > {{pais.country_name}} </option>
+                    </select>
+                </div>
+
+                <div class="mt-3 mb-3 text-center">
+                    <label for="estado"> Estado/Departamento: </label>
+                    <select name="estado" id="estado" formControlName="estado" class="w-100">
+                        <option (click)="cargarCiudades(estado.state_name)" *ngFor="let estado of this.estados" [value]="estado.state_name"> {{estado.state_name}} </option>
+                    </select>
+                </div>
+
+                <div class="mt-3 mb-3 text-center">
+                    <label for="ciudad"> Ciudad: </label>
+                    <select name="ciudad" id="ciudad" formControlName="ciudad" class="w-100">
+                        <option *ngFor="let ciudad of this.ciudades" [value]="ciudad.city_name"> {{ciudad.city_name}} </option>
+                    </select>
+                </div>
+
+
+                <button class="btn-success w-100">Buscar Casas</button>
+            </form>
+
+        </div>
+
+        <div class="col-md-4">
+        </div>
+    </div>
+
+    <div class="row mt-5 mb-5">
+        <div class="col-md-3">
+        </div>
+
+
+        <div class="col-md-6 col-12">
+
+            <div class="card mb-1 d-inline-block w-25" *ngFor="let casa of this.casasBusqueda">
+                <img src="{{casa.foto}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text">Pais: {{casa.pais}}</p>
+                  <p class="card-text">Estado: {{casa.estado}} </p>
+                  <p class="card-text">Ciudad: {{casa.ciudad}}</p>
+                  <p class="card-text">Dueño: {{casa.idPropietario}}</p>
+                  <button class="btn-danger w-40" (click)="buscarTodas($event)"> Ver Detalles -> </button>
+                </div>
+              </div>
+
+        </div>
+
+        <div class="col-md-3">
+        </div>
+    </div>
+
+</div>

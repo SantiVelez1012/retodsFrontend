@@ -17,6 +17,8 @@ import { NewHouseComponent } from './components/anfitrion-interface/new-house/ne
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { environment } from 'src/environments/environment';
+import { HouseSearchComponent } from './components/visitante-interface/house-search/house-search.component';
+import { HouseDetailsComponent } from './components/visitante-interface/house-details/house-details.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { environment } from 'src/environments/environment';
     NavbarAppComponent,
     FooterAppComponent,
     DashboardComponent,
-    NewHouseComponent
+    NewHouseComponent,
+    HouseSearchComponent,
+    HouseDetailsComponent
   ],
   imports: [
     BrowserModule,
