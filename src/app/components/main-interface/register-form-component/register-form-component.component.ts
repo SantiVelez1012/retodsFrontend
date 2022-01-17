@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Nuevo_usuario } from 'src/app/models/nuevo_usuario-model';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AuthValidationService } from 'src/app/services/auth-validation.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterFormComponentComponent implements OnInit {
 
-  constructor(private authService: AuthService, private fb:FormBuilder, private authValidationService: AuthValidationService, private router:Router) { }
+  constructor(private authService: AuthService, private fb:FormBuilder, private router:Router) { }
 
   usuarioRegistro!:Nuevo_usuario;
   roles = ["Anfitrion", "Viajero"];
@@ -22,7 +21,8 @@ export class RegisterFormComponentComponent implements OnInit {
     password:['', Validators.required],
     nombreCompleto:['', Validators.required],
     ciudad: ['', Validators.required],
-    pais:['', Validators.required] 
+    pais:['', Validators.required],
+    roles:['anfitrion, viajero']
   })
 
 
@@ -34,18 +34,18 @@ export class RegisterFormComponentComponent implements OnInit {
     this.usuarioRegistro = this.registerForm.value;
     this.usuarioRegistro.roles = this.roles;
 
-    this.authValidationService.validateExistence(this.usuarioRegistro) ? this.registroExitoso() : this.registroFallido();
-
+    this.authService.registroUsuario(this.registerForm.value).subscribe(
+      data => {
+        alert('Datos ingresados correctamente, por favor proceda a loguearse :D');
+        this.router.navigate(['login']);
+      }, error =>{
+        console.log(error);
+        alert('Hubo algun error, por favor verifique el nombre de usuario o alguno de los otros campos');
+      }
+    )
+    
   }
 
-  registroExitoso(){
-    alert('Registro realizado con exito, por favor proceda a loguearse');
-    this.router.navigate(['login']);
-
-  }
-
-  registroFallido(){
-    alert('Nombre de usuario ya utilizado, por favor elija otro');
-  }
+  
 
 }

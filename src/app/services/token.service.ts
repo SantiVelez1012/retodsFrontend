@@ -50,23 +50,8 @@ export class TokenService{
 
     }
 
-    public isAnfitrion(){
-        if(!this.isLogged()){
-            return null;
-        }
-
-        const token = this.getToken();
-
-        // @ts-ignore
-        const payLoad = token.split('.')[1];
-        const payLoadDecode = atob(payLoad);
-        const valor = JSON.parse(payLoadDecode);
-        const roles = valor.roles;
-        return roles.indexOf('ANFITRION') >= 0;
-    }
-
     public logOut(){
-        window.localStorage.clear();
+        window.sessionStorage.clear();
         this.router.navigate(['/']);
     }
 
