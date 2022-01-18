@@ -61,8 +61,11 @@ export class NewHouseComponent implements OnInit {
       this.houseService.guardarCasa(this.houseRegisterForm.value).subscribe(
         data => {
           console.log(data);
+          alert('Casa registrada correctamente, lo redireccionaremos al dashboard');
+          this.router.navigate(['dashboard']);
         });
     } catch (e) {
+      alert('Hubo un error, por favor verifique el formulario e intente de nuevo, gracias :D');
       console.log(e);
     }  
 

@@ -33,6 +33,7 @@ export class HouseSearchComponent implements OnInit {
   estados: StateModel[] = [];
   ciudades: CityModel[] = [];
   casasBusqueda: CasaModel[] = [];
+  mensaje:string = "";
 
 
   private cargarPaises() {
@@ -68,15 +69,19 @@ export class HouseSearchComponent implements OnInit {
 
   buscarCasa(e:Event){
     this.casasBusqueda = [];
+    this.mensaje = "";
     this.casaService.getHousesByCriterio(this.houseSearchForm.value).subscribe( data =>{
       console.log(data);
       this.casasBusqueda = data;
+      if(this.casasBusqueda.length === 0)
+        this.mensaje = "Lo sentimos, no pudimos encontrar casas según el criterio enviado :c"
     });
 
   }
 
   buscarTodas(e:Event){
     this.casasBusqueda = [];
+    this.mensaje = "";
     this.casaService.obtenerTodas().subscribe(data =>{
       this.casasBusqueda = data;
       console.log(data);
