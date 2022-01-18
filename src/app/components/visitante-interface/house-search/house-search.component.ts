@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CasaModel } from 'src/app/models/casa-model';
 import { CityModel } from 'src/app/models/geo-models/city-model';
 import { CountryModel } from 'src/app/models/geo-models/country-model';
@@ -15,7 +16,8 @@ import { HouseService } from 'src/app/services/house.service';
 })
 export class HouseSearchComponent implements OnInit {
 
-  constructor(private countryApiService: CountryapiService, private fb:FormBuilder, private casaService:HouseService) { }
+  constructor(private countryApiService: CountryapiService, private fb:FormBuilder, private casaService:HouseService,
+    private router:Router) { }
 
   ngOnInit(): void {
 
@@ -85,7 +87,13 @@ export class HouseSearchComponent implements OnInit {
     this.casaService.obtenerTodas().subscribe(data =>{
       this.casasBusqueda = data;
       console.log(data);
+      if(this.casasBusqueda.length === 0)
+        this.mensaje = "Lo sentimos, no pudimos encontrar casas según el criterio enviado :c"
     })
+  }
+
+  redirectToHouseDetails(houseId:string | undefined){
+    this.router.navigate([`house/${houseId}`]);
   }
 
 }

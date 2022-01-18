@@ -10,7 +10,7 @@
         </div>
 
 
-        <div class="col-md-4 col-12">
+        <div class="col-md-4 col-12 text-center">
 
             <form [formGroup]="registerForm" class="" (ngSubmit)="registrarUser()">
 
@@ -46,6 +46,9 @@
 
                 <button [disabled]="!registerForm.valid" class="btn-success w-100">Registrarse</button>
             </form>
+
+            <br> <br> <br>
+            <button (click)="redirectToLogin()" class="btn-danger text-center w-50">Ya tienes una cuenta? click aqui para ir al login</button>
 
         </div>
 

@@ -76,7 +76,7 @@
                   <p class="card-text">Estado: {{casa.estado}} </p>
                   <p class="card-text">Ciudad: {{casa.ciudad}}</p>
                   <p class="card-text">Dueño: {{casa.idPropietario}}</p>
-                  <button class="btn-danger w-40" (click)="buscarTodas($event)"> Ver Detalles -> </button>
+                  <button class="btn-danger w-40" (click)="redirectToHouseDetails(casa.idCasa)"> Ver Detalles -> </button>
                 </div>
               </div>
 
