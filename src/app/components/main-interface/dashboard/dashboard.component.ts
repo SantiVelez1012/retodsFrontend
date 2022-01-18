@@ -23,4 +23,8 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['newHouse']);
   }
 
+  houseSearch(){
+    this.router.navigate(['houseSearch']);
+  }
+
 }

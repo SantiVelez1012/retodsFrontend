@@ -31,7 +31,7 @@ export class LoginFormComponentComponent implements OnInit {
       alert('Logueo exitoso, sera redirigido al menu principal :D');
       this.router.navigate(['dashboard']);
     }, err =>{
-      alert('Logueo fallido, revise los datos e intentelo de nuevo, si no tiene una cuenta por favor registrese')
+      alert('Logueo fallido, revise los datos e intentelo de nuevo, si no tiene una cuenta por favor registrese');
     });
 
   }

@@ -1,8 +1,9 @@
-<nav class="navbar navbar-light bg-success text-center">
+<nav class="navbar navbar-light bg-success text-center d-flex">
     <div class="container-fluid justify-content-center">
       <p class="navbar-brand">Red de apoyo internacional</p>
     </div>
-    <div class="div" *ngIf="validateLogin()">
+    <div class="justify-content-center" *ngIf="validateLogin()">
       <button (click)="desloguear()">Cerrar sesión</button>
+      <button (click)="redireccionar()">Ir al Dashboard</button>
     </div>
 </nav>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class NavbarAppComponent implements OnInit {
 
   
 
-  constructor(private tokenService:TokenService) { }
+  constructor(private tokenService:TokenService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +22,10 @@ export class NavbarAppComponent implements OnInit {
 
   desloguear(){
     this.tokenService.logOut();
+  }
+
+  redireccionar(){
+    this.router.navigate(['dashboard'])
   }
 
 }
