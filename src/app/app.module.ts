@@ -19,6 +19,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { environment } from 'src/environments/environment';
 import { HouseSearchComponent } from './components/visitante-interface/house-search/house-search.component';
 import { HouseDetailsComponent } from './components/visitante-interface/house-details/house-details.component';
+import { ReservaPickerComponent } from './components/visitante-interface/reserva-picker/reserva-picker.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HouseDetailsComponent } from './components/visitante-interface/house-de
     DashboardComponent,
     NewHouseComponent,
     HouseSearchComponent,
-    HouseDetailsComponent
+    HouseDetailsComponent,
+    ReservaPickerComponent
   ],
   imports: [
     BrowserModule,

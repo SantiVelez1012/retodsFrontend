@@ -21,10 +21,7 @@ export class HouseDetailsComponent implements OnInit {
       console.log(this.casa);
     },err =>{
       console.log(err);
-      
     })
-    
-
   }
 
 }

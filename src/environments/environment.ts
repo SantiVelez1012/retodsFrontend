@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   authUrl:"http://localhost:8080/AUTH",
+  reservaUrl:"http://localhost:8080/api/reservas",
   countriesUrl:"https://www.universal-tutorial.com/api",
   authCountryToken:"MYQfuiaoifiQPMS_5zl-vtYcg0YCkShKS_4GKeuOdqWd2rWYubUvZ6Uj0wkyKoMj_wc",
   houseUrl:"http://localhost:8080/api/casas",
