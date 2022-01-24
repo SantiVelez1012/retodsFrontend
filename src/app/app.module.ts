@@ -20,6 +20,7 @@ import { environment } from 'src/environments/environment';
 import { HouseSearchComponent } from './components/visitante-interface/house-search/house-search.component';
 import { HouseDetailsComponent } from './components/visitante-interface/house-details/house-details.component';
 import { ReservaPickerComponent } from './components/visitante-interface/reserva-picker/reserva-picker.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ReservaPickerComponent } from './components/visitante-interface/reserva
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    NgbModule
 
   ],
   providers: [{
