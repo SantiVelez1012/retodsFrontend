@@ -1,8 +1,7 @@
 export interface ReservaModel{
-    fechaInicial?:string;
-    fechaFin?:string;
+    idDisp?:string;
     idCasa?:string;
+    fechaInicio?:string;
+    fechaFin?:string;
     usuarioReservado?:string;
-    calificacionUsuario?:string;
-    calificacionEstancia:string;
 }
