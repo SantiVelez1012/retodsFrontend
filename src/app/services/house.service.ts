@@ -36,4 +36,8 @@ export class HouseService {
     return this.http.post<CasaModel[]>(`${this.urlHouse}/busqueda/criterio`, criterio, {context:mainApi()});
   }
 
+  getHousesByLoggedUser(){
+    return this.http.get<CasaModel[]>(`${this.urlHouse}/busqueda/casasP`,{context:mainApi()});
+  }
+
 }

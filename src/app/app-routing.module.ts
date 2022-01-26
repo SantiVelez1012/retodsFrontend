@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ListadoCasasPropiedadComponent } from './components/anfitrion-interface/listado-casas-propiedad/listado-casas-propiedad.component';
 import { NewHouseComponent } from './components/anfitrion-interface/new-house/new-house.component';
 import { DashboardComponent } from './components/main-interface/dashboard/dashboard.component';
 import { LoginFormComponentComponent } from './components/main-interface/login-form-component/login-form-component.component';
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'newHouse', component:NewHouseComponent, pathMatch:'full', canActivate:[LoginGuard]},
   {path: 'houseSearch', component:HouseSearchComponent, pathMatch:'full', canActivate:[LoginGuard]},
   {path: 'house/:id', component:HouseDetailsComponent, pathMatch:'full', canActivate:[LoginGuard]},
-  {path: 'reserva/:id', component:ReservaPickerComponent, pathMatch:'full', canActivate:[LoginGuard]}
+  {path: 'reserva/:id', component:ReservaPickerComponent, pathMatch:'full', canActivate:[LoginGuard]},
+  {path: 'listadoReservas', component:ListadoCasasPropiedadComponent, pathMatch:'full', canActivate:[LoginGuard]}
 ];
 
 @NgModule({
