@@ -21,6 +21,9 @@ import { HouseDetailsComponent } from './components/visitante-interface/house-de
 import { ReservaPickerComponent } from './components/visitante-interface/reserva-picker/reserva-picker.component';
 import { NgbDatepickerModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListadoCasasPropiedadComponent } from './components/anfitrion-interface/listado-casas-propiedad/listado-casas-propiedad.component';
+import { ListadoReservasCasaComponent } from './components/anfitrion-interface/listado-reservas-casa/listado-reservas-casa.component';
+import { ListadoReservasUsuarioComponent } from './components/visitante-interface/listado-reservas-usuario/listado-reservas-usuario.component';
+import { CalificacionFormComponent } from './components/main-interface/calificacion-form/calificacion-form.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { ListadoCasasPropiedadComponent } from './components/anfitrion-interface
     HouseSearchComponent,
     HouseDetailsComponent,
     ReservaPickerComponent,
-    ListadoCasasPropiedadComponent
+    ListadoCasasPropiedadComponent,
+    ListadoReservasCasaComponent,
+    ListadoReservasUsuarioComponent,
+    CalificacionFormComponent
   ],
   imports: [
     BrowserModule,

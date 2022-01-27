@@ -17,15 +17,7 @@ export const environment = {
     messagingSenderId: "909267284823",
     appId: "1:909267284823:web:d3bead3cafb6647e570412",
     measurementId: "G-5H5KQXT27F"
-  }
+  },
+  calificacionUrl:'http://localhost:8080/api/calificaciones'
 };
 
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

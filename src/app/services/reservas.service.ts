@@ -23,4 +23,12 @@ export class ReservasService {
     return this.http.post<ReservaModel>(`${this.urlReserva}/crear`, reserva, {context:mainApi()});
   }
 
+  buscarReservasPorIdCasa(idCasa:string){
+    return this.http.get<ReservaModel[]>(`${this.urlReserva}/busquedac/${idCasa}`, {context:mainApi()});
+  }
+
+  buscarReservasPorUsuarioLogueado(){
+    return this.http.get<ReservaModel[]>(`${this.urlReserva}/busquedau`, {context:mainApi()});
+  }
+
 }
