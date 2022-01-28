@@ -6,6 +6,7 @@ import { NewHouseComponent } from './components/anfitrion-interface/new-house/ne
 import { CalificacionFormComponent } from './components/main-interface/calificacion-form/calificacion-form.component';
 import { DashboardComponent } from './components/main-interface/dashboard/dashboard.component';
 import { LoginFormComponentComponent } from './components/main-interface/login-form-component/login-form-component.component';
+import { PerfilUsuarioComponent } from './components/main-interface/perfil-usuario/perfil-usuario.component';
 import { RegisterFormComponentComponent } from './components/main-interface/register-form-component/register-form-component.component';
 import { HouseDetailsComponent } from './components/visitante-interface/house-details/house-details.component';
 import { HouseSearchComponent } from './components/visitante-interface/house-search/house-search.component';
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path: 'lreservas/:id', component:ListadoReservasCasaComponent, pathMatch:'full', canActivate:[LoginGuard]},
   {path: 'lreservasu', component:ListadoReservasUsuarioComponent, pathMatch:'full', canActivate:[LoginGuard]},
   {path: 'calificacionViajero/:id', component:CalificacionFormComponent, pathMatch:'full', canActivate:[LoginGuard]},
-  {path: 'calificacionAnfitrion/:id', component:CalificacionFormComponent, pathMatch:'full', canActivate:[LoginGuard]}
+  {path: 'calificacionAnfitrion/:id', component:CalificacionFormComponent, pathMatch:'full', canActivate:[LoginGuard]},
+  {path:'perfilUsuario/:id', component:PerfilUsuarioComponent, pathMatch:'full', canActivate:[LoginGuard]}
 ];
 
 @NgModule({

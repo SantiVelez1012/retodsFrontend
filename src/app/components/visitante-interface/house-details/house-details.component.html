@@ -14,6 +14,9 @@
 
             <img src="{{this.casa.foto}}" class="w-100" alt="">
 
+
+            <h4>La calificación promedio de esta casa es de: <ngb-rating class="mt-4 mb-4" [readonly]="true" [max]="5" [rate]="this.puntajePromedio"></ngb-rating></h4> 
+
             <p class="mt-5 mb-2">
                 Disfruta esta hermosa casa ubicada en {{this.casa.pais}}, en la ciudad de {{this.casa.ciudad}}, ubicada en el estado {{this.casa.estado}}
             </p>
@@ -41,3 +44,35 @@
         <div class="col-md-4">
         </div>
     </div>
+
+    <div class="row mt-3 mb-2">
+        <h2 class="text-center">Comentarios sobre la estadía en esta casa</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+
+
+        <div class="col-md-4 col-12 text-center">
+
+            <div class=""  *ngFor="let calificacion of this.calificaciones" >
+                
+                <div class="" *ngIf="calificacion.puntajeEstadia != null && calificacion.comentarioEstadia != '' ">
+
+                    
+                    <ngb-rating class="mt-4 mb-4" *ngIf="calificacion.puntajeEstadia != null" [readonly]="true" [max]="5" [rate]="calificacion.puntajeEstadia"></ngb-rating>
+                    <h4>Comentario: </h4>
+                    <p> {{calificacion.comentarioEstadia}} </p>
+                    <hr>
+
+                </div>
+                
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+        </div>
+    </div>
+</div>

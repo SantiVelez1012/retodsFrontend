@@ -24,6 +24,7 @@ import { ListadoCasasPropiedadComponent } from './components/anfitrion-interface
 import { ListadoReservasCasaComponent } from './components/anfitrion-interface/listado-reservas-casa/listado-reservas-casa.component';
 import { ListadoReservasUsuarioComponent } from './components/visitante-interface/listado-reservas-usuario/listado-reservas-usuario.component';
 import { CalificacionFormComponent } from './components/main-interface/calificacion-form/calificacion-form.component';
+import { PerfilUsuarioComponent } from './components/main-interface/perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { CalificacionFormComponent } from './components/main-interface/calificac
     ListadoCasasPropiedadComponent,
     ListadoReservasCasaComponent,
     ListadoReservasUsuarioComponent,
-    CalificacionFormComponent
+    CalificacionFormComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,

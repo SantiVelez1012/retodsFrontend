@@ -21,4 +21,12 @@ export class CalificacionService {
     return this.http.get<NewCalificacionModel[]>(`${this.urlCalificaciones}/busquedaid/${id}`, {context:mainApi()});
   }
 
+  buscarPorIdCasa(id:string){
+    return this.http.get<NewCalificacionModel[]>(`${this.urlCalificaciones}/busquedaidcasa/${id}`, {context:mainApi()});
+  }
+
+  buscarPorNombreUsuario(id:string){
+    return this.http.get<NewCalificacionModel[]>(`${this.urlCalificaciones}/busquedanombreusuario/${id}`, {context:mainApi()});
+  }
+
 }
