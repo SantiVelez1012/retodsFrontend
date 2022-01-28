@@ -1,0 +1,42 @@
+<div class="container-fluid">
+
+    <div class="row" *ngIf="this.reservas.length > 0">
+
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th scope="col">Numero unico de reserva </th>
+                  <th scope="col">Fecha de inicio</th>
+                  <th scope="col">Fecha de finalización</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let reserva of this.reservas">
+                  <td>{{reserva.idDisp}}</td>
+                  <td>{{reserva.fechaInicio}}</td>
+                  <td>{{reserva.fechaFin}}</td>
+                  <td><button class="btn-danger" [routerLink]="['/calificacionViajero/', reserva.idDisp]" >Revisar calificaciones</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-3"></div>
+
+    </div>
+
+    <div class="row" *ngIf="this.reservas.length === 0">
+
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+          <h2>No encontramos reservas para esta casa :C</h2>
+      </div>
+  
+      <div class="col-md-3"></div>
+    </div>
+
+
+</div>

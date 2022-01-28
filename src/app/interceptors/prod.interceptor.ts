@@ -25,8 +25,6 @@ export class ProdInterceptor implements HttpInterceptor {
         if (!this.tokenService.isLogged()) {
             return next.handle(req);
         }
-        console.log(req.url);
-
         if (req.context.get(MAIN_API)) {
             req = this.addToken(req);
         }
@@ -36,10 +34,6 @@ export class ProdInterceptor implements HttpInterceptor {
 
     private addToken(req: HttpRequest<any>): HttpRequest<any> {
         const token = this.tokenService.getToken();
-
-        console.log(token);
-        
-
         if (token) {
             return req.clone({ headers: req.headers.set(AUTHORIZATION, 'Bearer ' + token) });
         }

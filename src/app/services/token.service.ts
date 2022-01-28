@@ -19,7 +19,6 @@ export class TokenService{
     public setCountryToken(token:string):void{
         window.sessionStorage.removeItem(COUNTRY_KEY);
         window.sessionStorage.setItem(COUNTRY_KEY, token);
-        console.log(token);
     }
 
     public getCountryToken(){

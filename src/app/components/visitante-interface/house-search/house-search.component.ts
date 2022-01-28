@@ -47,7 +47,6 @@ export class HouseSearchComponent implements OnInit {
   cargarEstados(pais: string) {
     this.countryApiService.getStatesByCity(pais).subscribe(estados => {
       this.estados = [];
-      console.log(this.estados);
       this.estados = estados;
     });
   }
@@ -56,7 +55,6 @@ export class HouseSearchComponent implements OnInit {
 
     this.countryApiService.getCitiesByState(estado).subscribe(ciudades => {
       this.ciudades = [];
-      console.log(this.ciudades);
       this.ciudades = ciudades;
 
       if (this.ciudades.length === 0) {
@@ -73,7 +71,6 @@ export class HouseSearchComponent implements OnInit {
     this.casasBusqueda = [];
     this.mensaje = "";
     this.casaService.getHousesByCriterio(this.houseSearchForm.value).subscribe( data =>{
-      console.log(data);
       this.casasBusqueda = data;
       if(this.casasBusqueda.length === 0)
         this.mensaje = "Lo sentimos, no pudimos encontrar casas según el criterio enviado :c"
@@ -86,7 +83,6 @@ export class HouseSearchComponent implements OnInit {
     this.mensaje = "";
     this.casaService.obtenerTodas().subscribe(data =>{
       this.casasBusqueda = data;
-      console.log(data);
       if(this.casasBusqueda.length === 0)
         this.mensaje = "Lo sentimos, no pudimos encontrar casas según el criterio enviado :c"
     })

@@ -4,8 +4,6 @@
         <h2 class="text-center">Detalles de la reserva</h2>
     </div>
 
-    
-
     <div class="row">
         <div class="col-md-4">
         </div>
@@ -27,18 +25,17 @@
                 {{ date.day }}
               </span>
             </ng-template>
-
-            <button (click)="asignarReserva()">xd</button>
-
-            
         </div>
 
         <div class="col-md-4">
         </div>
     </div>
+    <hr>
+    <div class="row mt-3 mb-4">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <button class="text-center w-100 btn-danger" (click)="asignarReserva()">Reservar</button>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
 
-
-<hr>
-
-<pre>From: {{ fromDate | json }} </pre>
-<pre>To: {{ toDate | json }} </pre>

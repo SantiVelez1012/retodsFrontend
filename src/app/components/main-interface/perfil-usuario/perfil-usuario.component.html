@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <div class="row mt-3 mb-2">
+        <h2 class="text-center">Perfil del usuario: </h2>
+    </div>
+
+    
+
+    <div class="row mb-5">
+        <div class="col-md-4">
+        </div>
+
+
+        <div class="col-md-4 col-12 text-center">
+
+            <h3>Nombre de usuario: {{user.nombreUsuario}}</h3>
+
+            <h3>Nombre completo: {{user.nombreCompleto}}</h3>
+
+            <h3>País: {{user.pais}}</h3>
+
+            <h4>La calificación promedio de este usuario es de: <ngb-rating class="mt-4 mb-4" [readonly]="true" [max]="5" [rate]="this.puntajePromedio"></ngb-rating></h4> 
+
+        </div>
+
+        <div class="col-md-4">
+        </div>
+    </div>
+    <hr>
+    <div class="row mt-5 mb-2">
+        <h2 class="text-center">Comentarios sobre el usuario como viajero</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+
+
+        <div class="col-md-4 col-12 text-center">
+
+            <div class=""  *ngFor="let calificacion of this.calificaciones" >
+                
+                <div class="" *ngIf="calificacion.puntajeViajero != null && calificacion.comentarioViajero != '' ">
+
+                    
+                    <ngb-rating class="mt-4 mb-4" *ngIf="calificacion.puntajeViajero != null" [readonly]="true" [max]="5" [rate]="calificacion.puntajeViajero"></ngb-rating>
+                    <h4>Comentario: </h4>
+                    <p> {{calificacion.comentarioEstadia}} </p>
+                    <hr>
+
+                </div>
+                
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+        </div>
+    </div>
+</div>

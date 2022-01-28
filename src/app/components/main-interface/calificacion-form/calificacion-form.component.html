@@ -1,0 +1,30 @@
+<div class="container">
+
+    <!--Este es el formulario si la calificación no existe-->
+    <div class="row mt-5 mb-5" *ngIf="this.calificacionPrueba.comentarioEstadia === '' || this.calificacionPrueba.comentarioViajero === '' || this.calificaciones.length === 0">
+
+
+        <div class="col-md-3"></div>
+
+        <div class="col-md-6 col-12 text-center">
+            <div class="form-group text-center">
+                <form [formGroup]="calificacionForm" (ngSubmit)="crearCalificacion($event)">
+                    <p>Calificacion del 1 al 5 (Dar click en las estrellas)</p>
+                    <ngb-rating [max]="5" formControlName="puntaje"  [readonly]="false"></ngb-rating>
+
+                    <p class="mt-5">Comentario:</p>
+                    <textarea class="form-control mb-5"  formControlName="comentario" rows="3"></textarea>
+
+
+                    <button [disabled]="!this.calificacionForm.valid">Enviar calificación</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-3"></div>
+
+    </div>
+
+
+
+</div>

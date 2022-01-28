@@ -12,19 +12,9 @@ export class DashboardComponent implements OnInit {
   
   constructor(private tokenService:TokenService, private router:Router, private countryApi:CountryapiService ) { }
   ngOnInit(): void {
-    
     this.countryApi.authCountryApi().subscribe();
-
-    console.log(this.tokenService.getCountryToken());
-
   }
 
-  houseCreation(){
-    this.router.navigate(['newHouse']);
-  }
-
-  houseSearch(){
-    this.router.navigate(['houseSearch']);
-  }
+  
 
 }

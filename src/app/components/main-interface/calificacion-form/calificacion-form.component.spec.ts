@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FooterAppComponent } from './footer-app.component';
+import { CalificacionFormComponent } from './calificacion-form.component';
 
-describe('FooterAppComponent', () => {
-  let component: FooterAppComponent;
-  let fixture: ComponentFixture<FooterAppComponent>;
+describe('CalificacionFormComponent', () => {
+  let component: CalificacionFormComponent;
+  let fixture: ComponentFixture<CalificacionFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FooterAppComponent ]
+      declarations: [ CalificacionFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FooterAppComponent);
+    fixture = TestBed.createComponent(CalificacionFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

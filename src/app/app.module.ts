@@ -9,7 +9,6 @@ import { ProdInterceptor } from './interceptors/prod.interceptor';
 import { RegisterFormComponentComponent } from './components/main-interface/register-form-component/register-form-component.component';
 import { LoginFormComponentComponent } from './components/main-interface/login-form-component/login-form-component.component';
 import { NavbarAppComponent } from './components/layout/navbar-app/navbar-app.component';
-import { FooterAppComponent } from './components/layout/footer-app/footer-app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/main-interface/dashboard/dashboard.component';
 import { CountriesInterceptorService } from './interceptors/countries-interceptor.service';
@@ -20,7 +19,12 @@ import { environment } from 'src/environments/environment';
 import { HouseSearchComponent } from './components/visitante-interface/house-search/house-search.component';
 import { HouseDetailsComponent } from './components/visitante-interface/house-details/house-details.component';
 import { ReservaPickerComponent } from './components/visitante-interface/reserva-picker/reserva-picker.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ListadoCasasPropiedadComponent } from './components/anfitrion-interface/listado-casas-propiedad/listado-casas-propiedad.component';
+import { ListadoReservasCasaComponent } from './components/anfitrion-interface/listado-reservas-casa/listado-reservas-casa.component';
+import { ListadoReservasUsuarioComponent } from './components/visitante-interface/listado-reservas-usuario/listado-reservas-usuario.component';
+import { CalificacionFormComponent } from './components/main-interface/calificacion-form/calificacion-form.component';
+import { PerfilUsuarioComponent } from './components/main-interface/perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +32,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RegisterFormComponentComponent,
     LoginFormComponentComponent,
     NavbarAppComponent,
-    FooterAppComponent,
     DashboardComponent,
     NewHouseComponent,
     HouseSearchComponent,
     HouseDetailsComponent,
-    ReservaPickerComponent
+    ReservaPickerComponent,
+    ListadoCasasPropiedadComponent,
+    ListadoReservasCasaComponent,
+    ListadoReservasUsuarioComponent,
+    CalificacionFormComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +52,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
-    NgbModule
+    NgbModule,
+    NgbDatepickerModule
 
   ],
   providers: [{
