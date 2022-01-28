@@ -25,7 +25,8 @@ const routes: Routes = [
   {path: 'lcregistradas', component:ListadoCasasPropiedadComponent, pathMatch:'full', canActivate:[LoginGuard]},
   {path: 'lreservas/:id', component:ListadoReservasCasaComponent, pathMatch:'full', canActivate:[LoginGuard]},
   {path: 'lreservasu', component:ListadoReservasUsuarioComponent, pathMatch:'full', canActivate:[LoginGuard]},
-  {path: 'calificacion/:id', component:CalificacionFormComponent, pathMatch:'full', canActivate:[LoginGuard]}
+  {path: 'calificacionViajero/:id', component:CalificacionFormComponent, pathMatch:'full', canActivate:[LoginGuard]},
+  {path: 'calificacionAnfitrion/:id', component:CalificacionFormComponent, pathMatch:'full', canActivate:[LoginGuard]}
 ];
 
 @NgModule({
