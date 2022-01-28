@@ -16,7 +16,6 @@ export class ListadoCasasPropiedadComponent implements OnInit {
   ngOnInit(): void {
 
     this.houseService.getHousesByLoggedUser().subscribe(data =>{
-      console.log(data);
       this.casas = data;
     })
 

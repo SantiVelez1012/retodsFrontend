@@ -31,7 +31,6 @@ export class PerfilUsuarioComponent implements OnInit {
 
     this.calificacionService.buscarPorNombreUsuario(this.nombreUsuario).subscribe(data =>{
       this.calificaciones = data;
-      console.log(data);
 
       this.calificaciones.forEach((valor, indice, array)=>{
         

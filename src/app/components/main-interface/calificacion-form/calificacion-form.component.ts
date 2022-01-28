@@ -30,7 +30,6 @@ export class CalificacionFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.calificacionService.buscarPorIdReserva(this.idReserva).subscribe(data =>{
-      console.log(data);
       this.calificaciones = data;
       this.calificacionACrear.idCalificacion = data[0].idCalificacion;
     });
@@ -69,7 +68,6 @@ export class CalificacionFormComponent implements OnInit {
     }
 
     this.calificacionService.crearCalificacion(this.calificacionACrear).subscribe(data =>{
-      console.log(data);
       alert('Calificación hecha correctamente, serás redireccionado al menú principal')
       this.router.navigate(['dashboard'])
     }, error =>{

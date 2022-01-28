@@ -25,7 +25,6 @@ export class HouseDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.casaService.getHouseById(this.idCasa).subscribe(data=>{
       this.casa = data;
-      console.log(this.casa);
     },err =>{
       console.log(err);
     })
@@ -33,7 +32,6 @@ export class HouseDetailsComponent implements OnInit {
 
     this.calificacionService.buscarPorIdCasa(this.idCasa).subscribe(data =>{
       this.calificaciones = data;
-      console.log(data);
 
       this.calificaciones.forEach((valor, indice, array)=>{
         

@@ -28,8 +28,6 @@ export class CountriesInterceptorService implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log("paso por el interceptor de paises");
-    
     if(req.context.get(COUNTRY_API)){
       req = this.addToken(req);
     }

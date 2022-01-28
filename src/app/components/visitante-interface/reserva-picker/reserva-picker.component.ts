@@ -51,7 +51,6 @@ export class ReservaPickerComponent implements OnInit {
     } else {
       this.toDate = null;
       this.fromDate = date;
-      console.log(this.fromDate.day.toString().length);
       
       if(this.fromDate.day.toString().length < 2 && this.fromDate.month.toString().length < 2){
 
@@ -97,7 +96,6 @@ export class ReservaPickerComponent implements OnInit {
     this.reserva.idCasa = this.idCasa;
 
     this.reservasService.crearReserva(this.reserva).subscribe(data =>{
-      console.log(data);
       alert('Reserva hecha satisfactoriamente, serás redirigido al menú principal');
       this.router.navigate(['dashboard']);
     }, error =>{

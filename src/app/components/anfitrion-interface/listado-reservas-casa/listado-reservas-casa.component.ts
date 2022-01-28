@@ -18,7 +18,6 @@ export class ListadoReservasCasaComponent implements OnInit {
   ngOnInit(): void {
 
     this.reservaService.buscarReservasPorIdCasa(this.idCasa).subscribe(data =>{
-      console.log(data);
       this.reservas = data;
     })
 

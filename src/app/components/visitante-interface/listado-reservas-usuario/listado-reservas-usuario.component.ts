@@ -16,7 +16,6 @@ export class ListadoReservasUsuarioComponent implements OnInit {
   ngOnInit(): void {
 
     this.reservaService.buscarReservasPorUsuarioLogueado().subscribe(data =>{
-      console.log(data);
       this.reservas = data;
       
     })

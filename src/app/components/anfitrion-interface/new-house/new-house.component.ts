@@ -60,7 +60,6 @@ export class NewHouseComponent implements OnInit {
     try {
       this.houseService.guardarCasa(this.houseRegisterForm.value).subscribe(
         data => {
-          console.log(data);
           alert('Casa registrada correctamente, lo redireccionaremos al dashboard');
           this.router.navigate(['dashboard']);
         });
@@ -80,7 +79,6 @@ export class NewHouseComponent implements OnInit {
   cargarEstados(pais: string) {
     this.countryApiService.getStatesByCity(pais).subscribe(estados => {
       this.estados = [];
-      console.log(this.estados);
       this.estados = estados;
     });
   }
@@ -89,7 +87,6 @@ export class NewHouseComponent implements OnInit {
 
     this.countryApiService.getCitiesByState(estado).subscribe(ciudades => {
       this.ciudades = [];
-      console.log(this.ciudades);
       this.ciudades = ciudades;
 
       if (this.ciudades.length === 0) {
@@ -116,7 +113,6 @@ export class NewHouseComponent implements OnInit {
       this.urlImage$ = ref.getDownloadURL();
 
       this.urlImage$.subscribe(url => {
-        console.log(url);
         this.houseRegisterForm.get('foto')?.setValue(url);
         this.imgSubida = false;
       });

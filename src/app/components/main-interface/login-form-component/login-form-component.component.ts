@@ -27,7 +27,6 @@ export class LoginFormComponentComponent implements OnInit {
     this.userLogged = this.loginForm.value;
 
     this.authService.logueoUsuario(this.userLogged).subscribe(data =>{
-      console.log(data);
       alert('Logueo exitoso, sera redirigido al menu principal :D');
       this.router.navigate(['dashboard']);
     }, err =>{
