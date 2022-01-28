@@ -15,7 +15,7 @@
                 </thead>
                 <tbody>
                 <tr *ngFor="let reserva of this.reservas">
-                  <td>{{reserva.usuarioReservado}}</td>
+                  <td><a [routerLink]="['/perfilUsuario/', reserva.usuarioReservado]">{{reserva.usuarioReservado}}</a></td>
                   <td>{{reserva.fechaInicio}}</td>
                   <td>{{reserva.fechaFin}}</td>
                   <td><button class="btn-danger" [routerLink]="['/calificacionAnfitrion/', reserva.idDisp]">Revisar calificaciones</button></td>

@@ -18,7 +18,7 @@ export class UsuarioService {
     return this.http.get<PublicUserModel>(`${this.userUrl}/busqueda/${nombreUsuario}`, {context:mainApi()});
   }
 
-  obtenerInfoPublicaConToken(nombreUsuario:string){
+  obtenerInfoPublicaConToken(){
     return this.http.get<PublicUserModel>(`${this.userUrl}/busqueda`, {context:mainApi()});
   }
 

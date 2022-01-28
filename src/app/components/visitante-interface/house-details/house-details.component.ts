@@ -16,6 +16,7 @@ export class HouseDetailsComponent implements OnInit {
 
   idCasa:string = this.aRoute.snapshot.params.id;
   casa!:CasaModel;
+  
   calificaciones:NewCalificacionModel[] = [];
   puntajePromedio:number = 0;
   accPuntaje:number = 0;
