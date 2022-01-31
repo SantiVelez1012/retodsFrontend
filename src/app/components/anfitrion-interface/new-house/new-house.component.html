@@ -14,38 +14,38 @@
 
                 <div class="mt-3 mb-3 text-center">
                     <label for="direccion"> Dirección de la casa: </label>
-                    <input type="text" id="direccion" class="w-100" formControlName="direccion">
+                    <input type="text" id="direccion" class="w-100 form-control" formControlName="direccion">
                 </div>
 
                 <div class="mt-3 mb-3 text-center">
                     <label for="password"> Pais: </label>
-                    <select name="pais" id="pais" formControlName="pais" class="w-100" >
+                    <select name="pais" id="pais" formControlName="pais" class="w-100 form-select" >
                         <option (click)="cargarEstados(pais.country_name)" *ngFor="let pais of this.paises" [value]="pais.country_name" > {{pais.country_name}} </option>
                     </select>
                 </div>
 
                 <div class="mt-3 mb-3 text-center">
                     <label for="estado"> Estado/Departamento: </label>
-                    <select name="estado" id="estado" formControlName="estado" class="w-100">
+                    <select name="estado" id="estado" formControlName="estado" class="w-100 form-select">
                         <option (click)="cargarCiudades(estado.state_name)" *ngFor="let estado of this.estados" [value]="estado.state_name"> {{estado.state_name}} </option>
                     </select>
                 </div>
 
                 <div class="mt-3 mb-3 text-center">
                     <label for="ciudad"> Ciudad: </label>
-                    <select name="ciudad" id="ciudad" formControlName="ciudad" class="w-100">
+                    <select name="ciudad" id="ciudad" formControlName="ciudad" class="w-100 form-select">
                         <option *ngFor="let ciudad of this.ciudades" [value]="ciudad.city_name"> {{ciudad.city_name}} </option>
                     </select>
                 </div>
 
                 <div class="mt-3 mb-3 text-center">
                     <label for="telefono"> Teléfono: </label>
-                    <input type="text" id="telefono" class="w-100" formControlName="telefono">
+                    <input type="text" id="telefono" class="w-100 form-control" formControlName="telefono">
                 </div>
 
                 <div class="mt-3 mb-3 text-center">
                     <label for="telefono"> Foto de la casa: </label>
-                    <input type="file" id="telefono" accept=".png, .jpg, .csv" (change)="onUpload($event)" class="w-100">
+                    <input type="file" id="telefono" accept=".png, .jpg, .csv" (change)="onUpload($event)" class="w-100 form-control">
                 </div>
 
         

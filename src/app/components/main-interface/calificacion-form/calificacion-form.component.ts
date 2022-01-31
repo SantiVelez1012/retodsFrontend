@@ -54,16 +54,20 @@ export class CalificacionFormComponent implements OnInit {
       this.calificacionACrear.comentarioEstadia = this.calificacionForm.get('comentario')?.value;
       this.calificacionACrear.puntajeEstadia = this.calificacionForm.get('puntaje')?.value;
 
-      this.calificacionACrear.comentarioViajero = this.calificaciones[0].comentarioViajero
-      this.calificacionACrear.puntajeViajero = this.calificaciones[0].puntajeViajero;
+      if(this.calificaciones.length > 0){
+        this.calificacionACrear.comentarioViajero = this.calificaciones[0].comentarioViajero
+        this.calificacionACrear.puntajeViajero = this.calificaciones[0].puntajeViajero;
+      }
       
     }else if(this.router.url.includes("Anfitrion")){
 
       this.calificacionACrear.comentarioViajero = this.calificacionForm.get('comentario')?.value;
       this.calificacionACrear.puntajeViajero = this.calificacionForm.get('puntaje')?.value;
 
-      this.calificacionACrear.comentarioEstadia = this.calificaciones[0].comentarioEstadia
-      this.calificacionACrear.puntajeEstadia = this.calificaciones[0].puntajeEstadia;
+      if(this.calificaciones.length > 0){
+        this.calificacionACrear.comentarioEstadia = this.calificaciones[0].comentarioEstadia
+        this.calificacionACrear.puntajeEstadia = this.calificaciones[0].puntajeEstadia;
+      }
 
     }
 

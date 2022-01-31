@@ -9,7 +9,7 @@
         </div>
 
         <div class="col-md-2">
-            <button class="btn-danger w-100" (click)="buscarTodas($event)"> No sabes donde ir? dale click aqui :D </button>
+            <button class="btn-danger w-100 btn" (click)="buscarTodas($event)"> No sabes donde ir? dale click aqui :D </button>
         </div>
 
         <div class="col-md-5">
@@ -29,27 +29,27 @@
 
                 <div class="mt-3 mb-3 text-center">
                     <label for="password"> Pais: </label>
-                    <select name="pais" id="pais" formControlName="pais" class="w-100" >
+                    <select name="pais" id="pais" formControlName="pais" class="w-100 form-select" >
                         <option (click)="cargarEstados(pais.country_name)" *ngFor="let pais of this.paises" [value]="pais.country_name" > {{pais.country_name}} </option>
                     </select>
                 </div>
 
                 <div class="mt-3 mb-3 text-center">
                     <label for="estado"> Estado/Departamento: </label>
-                    <select name="estado" id="estado" formControlName="estado" class="w-100">
+                    <select name="estado" id="estado" formControlName="estado" class="w-100 form-select">
                         <option (click)="cargarCiudades(estado.state_name)" *ngFor="let estado of this.estados" [value]="estado.state_name"> {{estado.state_name}} </option>
                     </select>
                 </div>
 
                 <div class="mt-3 mb-3 text-center">
                     <label for="ciudad"> Ciudad: </label>
-                    <select name="ciudad" id="ciudad" formControlName="ciudad" class="w-100">
+                    <select name="ciudad" id="ciudad" formControlName="ciudad" class="w-100 form-select">
                         <option *ngFor="let ciudad of this.ciudades" [value]="ciudad.city_name"> {{ciudad.city_name}} </option>
                     </select>
                 </div>
 
 
-                <button class="btn-success w-100">Buscar Casas</button>
+                <button class="btn-success w-100 btn">Buscar Casas</button>
             </form>
 
         </div>
@@ -76,7 +76,7 @@
                   <p class="card-text">Estado: {{casa.estado}} </p>
                   <p class="card-text">Ciudad: {{casa.ciudad}}</p>
                   <p class="card-text">Dueño: {{casa.idPropietario}}</p>
-                  <button class="btn-danger w-40" (click)="redirectToHouseDetails(casa.idCasa)"> Ver Detalles -> </button>
+                  <button class="btn-danger w-40 btn" (click)="redirectToHouseDetails(casa.idCasa)"> Ver Detalles -> </button>
                 </div>
               </div>
 
